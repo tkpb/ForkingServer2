@@ -1,4 +1,4 @@
-import os
+﻿import os
 import socket
 import threading
 import socketserver
@@ -23,7 +23,7 @@ class ForkedClient:
         # Send the data to server
         current_process_id = os.getpid()
         print('PID %s Sending echo message to the server : "%s"' % (current_process_id, ECHO_MSG))
-        sent_data_length = self.sock.send(ECHO_MSG)
+        sent_data_length = self.sock.send(ECHO_MSG.encode('ascii'))
         print("Sent: %d characters, so far..." % sent_data_length)
 
         # Display server response
