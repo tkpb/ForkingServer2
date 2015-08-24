@@ -7,6 +7,7 @@ SERVER_HOST = 'localhost'
 SERVER_PORT = 9000
 BUF_SIZE = 1024
 ECHO_MSG = 'Hello echo server!'
+DEFAULT_ENCODING = 'ascii'
 
 
 class ForkedClient:
@@ -23,7 +24,7 @@ class ForkedClient:
         # Send the data to server
         current_process_id = os.getpid()
         print('PID %s Sending echo message to the server : "%s"' % (current_process_id, ECHO_MSG))
-        sent_data_length = self.sock.send(ECHO_MSG.encode('ascii'))
+        sent_data_length = self.sock.send(ECHO_MSG.encode(DEFAULT_ENCODING))
         print("Sent: %d characters, so far..." % sent_data_length)
 
         # Display server response
